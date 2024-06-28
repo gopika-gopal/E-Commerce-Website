@@ -13,6 +13,16 @@
 <body>
   <div id="root"></div>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    // Redirect 404 to index.html
+    (function () {
+      var currentPath = window.location.pathname;
+      var currentSearch = window.location.search;
+      if (currentPath !== '/' && !currentPath.includes('404')) {
+        window.location.replace('/?' + currentSearch + '#!' + currentPath);
+      }
+    })();
+  </script>
 </body>
 
 </html>
